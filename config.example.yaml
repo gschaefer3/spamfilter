@@ -1,0 +1,40 @@
+accounts:
+  - name: gmail_personal
+    imap_server: imap.gmail.com
+    imap_port: 993
+    smtp_server: smtp.gmail.com
+    smtp_port: 587
+    username: you@gmail.com
+    password_env: GMAIL_PERSONAL_PASSWORD   # app password, not your normal login password
+    inbox_folder: INBOX
+    spam_folder: "[Gmail]/Spam"
+    create_spam_folder: false
+
+  - name: yahoo_personal
+    imap_server: imap.mail.yahoo.com
+    imap_port: 993
+    smtp_server: smtp.mail.yahoo.com
+    smtp_port: 587
+    username: you@yahoo.com
+    password_env: YAHOO_PERSONAL_PASSWORD   # app password
+    inbox_folder: INBOX
+    spam_folder: Bulk
+
+  - name: migadu_domain
+    imap_server: imap.migadu.com
+    imap_port: 993
+    smtp_server: smtp.migadu.com
+    smtp_port: 587
+    username: you@yourdomain.com
+    password_env: MIGADU_DOMAIN_PASSWORD
+    inbox_folder: INBOX
+    spam_folder: Junk
+
+ollama:
+  url: http://localhost:11434/api/generate
+  model: llama3          # must exactly match a name from `ollama list` (including tag, e.g. llama3.2:latest)
+  timeout_seconds: 30
+
+settings:
+  scanned_keyword: SpamFilterScanned   # IMAP flag used to avoid re-classifying the same unread message every run
+  max_messages_per_account: 50

@@ -1,0 +1,13 @@
+.env
+.env.*
+config.yaml
+run_history.csv
+*.log
+*.log.*
+*.out
+*.err
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
