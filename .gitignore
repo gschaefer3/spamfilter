@@ -6,6 +6,7 @@ run_history.csv
 *.log.*
 *.out
 *.err
+logs/
 __pycache__/
 *.py[cod]
 .venv/

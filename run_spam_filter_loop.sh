@@ -16,13 +16,15 @@ fi
 
 MAX_RETRIES="${SPAMFILTER_MAX_RETRIES:-3}"
 RETRY_DELAY_SECONDS="${SPAMFILTER_RETRY_DELAY_SECONDS:-10}"
+LOG_DIR="$SCRIPT_DIR/logs"
+mkdir -p "$LOG_DIR"
 
 get_next_log_name() {
   local today
   today=$(date +%Y%m%d)
   local highest=0
 
-  for path in "$SCRIPT_DIR"/${today}_*.log; do
+  for path in "$LOG_DIR"/${today}_*.log; do
     [[ -e "$path" ]] || continue
     local filename
     filename=$(basename "$path")
@@ -54,7 +56,7 @@ run_once() {
   today=$(date +%Y%m%d)
   local next_number
   next_number=$(get_next_log_name)
-  local log_file="$SCRIPT_DIR/${today}_${next_number}.log"
+  local log_file="$LOG_DIR/${today}_${next_number}.log"
   local attempt
   local exit_code=0
 
